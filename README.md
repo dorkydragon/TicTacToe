@@ -14,5 +14,5 @@ To build and run on a simulator, hit Command + R.
 
 ## Screenshots
 
-![](https://github.com/dorkydragon/TicTacToe/blob/master/Screenshots/Finished%20game.png?raw=true)
-![](https://github.com/dorkydragon/TicTacToe/blob/master/Screenshots/New%20game.png?raw=true)
+![](https://github.com/dorkydragon/TicTacToe/blob/master/Screenshots/Finished%20game.png?raw=true |  width = 100)
+![](https://github.com/dorkydragon/TicTacToe/blob/master/Screenshots/New%20game.png?raw=true | width = 100)
