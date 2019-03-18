@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  test
+//  ticTacToe
 //
 //  Created by Sophie on 3/17/19.
 //  Copyright © 2019 Sophie. All rights reserved.
@@ -42,8 +42,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func a1(_ sender: UIButton) {
-        if a1.currentBackgroundImage != UIImage(named: "o") {
-            
+        if allowedMoves.contains("a1") {
             
             if !win {
             a1.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -56,12 +55,16 @@ class ViewController: UIViewController {
             humanBoard[0] = 1
             
             computerPick()
+        } else {
+            print("a1:o")
         }
+        
     }
     
     @IBAction func a2(_ sender: UIButton) {
-        if a2.currentBackgroundImage != UIImage(named: "o") {
-            
+//        if a2.currentBackgroundImage != nil && !a2.currentBackgroundImage!.isEqual(UIImage(named: "o")) {
+        
+        if allowedMoves.contains("a2") {
             if !win {
             a2.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
             }
@@ -77,7 +80,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func a3(_ sender: UIButton) {
-        if a3.currentBackgroundImage != UIImage(named: "o") {
+        if allowedMoves.contains("a3") {
             
             if !win {
             a3.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -94,7 +97,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func b1(_ sender: UIButton) {
-        if b1.currentBackgroundImage != UIImage(named: "o") {
+        if allowedMoves.contains("b1") {
             
             if !win {
             b1.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -111,7 +114,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func b2(_ sender: UIButton) {
-        if b2.currentBackgroundImage != UIImage(named: "o") {
+        if allowedMoves.contains("b2") {
             
             if !win {
             b2.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -128,7 +131,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func b3(_ sender: UIButton) {
-        if b3.currentBackgroundImage != UIImage(named: "o") {
+        if allowedMoves.contains("b3") {
             
             if !win {
             b3.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -145,7 +148,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func c1(_ sender: UIButton) {
-        if c1.currentBackgroundImage != UIImage(named: "o") {
+        if allowedMoves.contains("c1") {
             
             if !win {
             c1.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -162,7 +165,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func c2(_ sender: UIButton) {
-        if c2.currentBackgroundImage != UIImage(named: "o") {
+        if allowedMoves.contains("c2") {
             
             if !win {
             c2.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -179,7 +182,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func c3(_ sender: UIButton) {
-        if c3.currentBackgroundImage != UIImage(named: "o") {
+        if allowedMoves.contains("c3") {
             
             if !win {
             c3.setBackgroundImage(UIImage(named:"x")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -226,68 +229,68 @@ class ViewController: UIViewController {
         humanWin()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if self.allowedMoves.count > 1  {
+            if self.allowedMoves.count > 1 {
             
                 if !self.win {
                     if let randomElement = self.allowedMoves.randomElement() {
                 
                         if let index = self.allowedMoves.index(of: randomElement) {
                             self.allowedMoves.remove(at: index)
-                }
+                        }
                 
-                if randomElement == "a1" {
-                    self.a1.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    self.computerBoard[0] = 1
-                }
-                
-                if randomElement == "a2" {
-                    self.a2.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    
-                    self.computerBoard[1] = 1
-                }
-                
-                if randomElement == "a3" {
-                    self.a3.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    self.computerBoard[2] = 1
-                }
-                
-                if randomElement == "b1" {
-                    self.b1.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    self.computerBoard[3] = 1
-                }
-                
-                if randomElement == "b2" {
-                    self.b2.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    self.computerBoard[4] = 1
-                }
-                
-                if randomElement == "b3" {
-                    self.b3.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    self.computerBoard[5] = 1
-                }
-                
-                if randomElement == "c1" {
-                    self.c1.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    self.computerBoard[6] = 1
-                }
-                
-                if randomElement == "c2" {
-                    self.c2.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    self.computerBoard[7] = 1
-                }
-                
-                if randomElement == "c3" {
-                    self.c3.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                    self.computerBoard[8] = 1
-                }
-                
+                        if randomElement == "a1" {
+                            self.a1.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            self.computerBoard[0] = 1
+                        }
+                        
+                        if randomElement == "a2" {
+                            self.a2.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            
+                            self.computerBoard[1] = 1
+                        }
+                        
+                        if randomElement == "a3" {
+                            self.a3.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            self.computerBoard[2] = 1
+                        }
+                        
+                        if randomElement == "b1" {
+                            self.b1.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            self.computerBoard[3] = 1
+                        }
+                        
+                        if randomElement == "b2" {
+                            self.b2.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            self.computerBoard[4] = 1
+                        }
+                        
+                        if randomElement == "b3" {
+                            self.b3.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            self.computerBoard[5] = 1
+                        }
+                        
+                        if randomElement == "c1" {
+                            self.c1.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            self.computerBoard[6] = 1
+                        }
+                        
+                        if randomElement == "c2" {
+                            self.c2.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            self.computerBoard[7] = 1
+                        }
+                        
+                        if randomElement == "c3" {
+                            self.c3.setBackgroundImage(UIImage(named:"o")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                            self.computerBoard[8] = 1
+                        }
                 }
             }
+                
+                self.computerWin()
             }
+            
         }
-        
-        computerWin()
-        
+
     }
     
     func humanWin() {
@@ -328,7 +331,6 @@ class ViewController: UIViewController {
                 win = true
             }
         }
-        
     }
     
     
@@ -338,7 +340,13 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
+        humanBoard = [0, 0, 0,
+                          0, 0, 0,
+                          0, 0, 0]
         
+        computerBoard = [0, 0, 0,
+                             0, 0, 0,
+                             0, 0, 0]
         
     }
     

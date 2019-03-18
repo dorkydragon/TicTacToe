@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  test
+//  ticTacToe
 //
 //  Created by Sophie on 3/17/19.
 //  Copyright © 2019 Sophie. All rights reserved.
